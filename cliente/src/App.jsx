@@ -1,11 +1,11 @@
-import "./App.css";
+import './App.css'
 
 function App() {
   return (
     <>
-      <div className="bg">app</div>
+      <div className='bg-red-600'>app</div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

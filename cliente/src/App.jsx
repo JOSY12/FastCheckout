@@ -1,9 +1,13 @@
 import './App.css'
-
+import Footer from './components/Footer'
+import MainContainer from './components/MainContainer'
+import Navbar from './components/Navbar'
 function App() {
   return (
     <>
-      <div className='bg-red-600'>app</div>
+      <Navbar />
+      <MainContainer />
+      <Footer />
     </>
   )
 }

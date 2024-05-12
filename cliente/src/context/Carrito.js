@@ -3,61 +3,43 @@ import { create } from 'zustand'
 export const Carrito = create(set => ({
   carrito: [],
   agregar: producto => {
-    set(state => {
-      const productoNoExiste = !state.carrito.some(p => p.id === producto.id)
-
-      if (productoNoExiste) {
-        // Si el producto no existe en el carrito, agrégalo
-        return {
-          carrito: [...state.carrito, producto]
-        }
-      }
-
-      // Si el producto ya existe en el carrito, no hagas nada
-      return state
-    })
+    set(({ carrito }) => ({
+      carrito: carrito.some(p => p.id === producto.id)
+        ? carrito
+        : [...carrito, producto]
+    }))
   },
+
   aumentar: id => {
-    set(state => {
-      const producto = state.carrito.find(producto => producto.id === id)
-      if (producto) {
-        return {
-          carrito: state.carrito.map(producto => {
-            if (producto.id === id) {
-              return {
-                ...producto,
-                cantidad: producto.cantidad + 1
-              }
-            }
-            return producto
-          })
-        }
-      }
-    })
+    set(({ carrito }) => ({
+      carrito: carrito.map(producto =>
+        producto.id === id
+          ? { ...producto, cantidad: producto.cantidad + 1 }
+          : producto
+      )
+    }))
   },
   restar: id => {
-    set(state => {
-      const producto = state.carrito.find(producto => producto.id === id)
-      if (producto) {
-        return {
-          carrito: state.carrito.map(producto => {
-            if (producto.id === id && producto.cantidad > 1) {
-              return {
-                ...producto,
-                cantidad: producto.cantidad - 1
-              }
-            }
-
-            return producto
-          })
-        }
-      }
-    })
+    set(({ carrito }) => ({
+      carrito: carrito.map(producto =>
+        producto.id === id && producto.cantidad > 1
+          ? { ...producto, cantidad: producto.cantidad - 1 }
+          : producto
+      )
+    }))
   },
 
+  // restar: id => {
+  //   set(({ carrito }) => ({
+  //     carrito: carrito.map(producto =>
+  //       producto.id === id && producto.cantidad > 1
+  //         ? { ...producto, cantidad: producto.cantidad - 1 }
+  //         : carrito.filter(producto => producto.id !== id)
+  //     )
+  //   }))
+  // },
   quitar: id =>
-    set(state => ({
-      ...state,
-      carrito: state.carrito.filter(producto => producto.id !== id)
+    set(({ carrito }) => ({
+      carrito: carrito.filter(producto => producto.id !== id)
     }))
 }))

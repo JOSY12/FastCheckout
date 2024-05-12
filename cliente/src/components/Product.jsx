@@ -43,8 +43,9 @@ const Product = ({ id, category, company, img, newPrice, title }) => {
               }
               disabled={agregado}
               className={`text-sm w-full ${
-                agregado ? 'bg-red-400  ' : ''
-              } flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100    `}>
+                agregado ? 'bg-green-600  ' : ''
+              } flex items-center space-x-1.5   bg-black px-4 py-1.5 text-white duration-100    `}
+            >
               {agregado ? 'Agregado al carrito' : '  Agregar al carrito'}
             </button>
           </div>

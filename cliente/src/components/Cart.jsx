@@ -11,7 +11,6 @@ const Cart = () => {
       (acc, { newPrice, cantidad }) => acc + newPrice * cantidad,
       0
     )
-
     settotal(total)
   }, [carrito])
   return (
@@ -32,6 +31,7 @@ const Cart = () => {
                 ))}
               </div>
             </div>
+
             <div className='mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0  '>
               <hr className='my-4' />
               <div className='flex justify-b  place-content-between'>
@@ -43,7 +43,8 @@ const Cart = () => {
 
               <button
                 disabled={carrito.length === 0}
-                className={`mt-6 w-full   rounded-md disabled:bg-white bg-blue-700   py-1.5 font-medium text-blue-50    `}>
+                className={`mt-6 w-full   rounded-md disabled:bg-white bg-black   py-1.5 font-medium text-blue-50    `}
+              >
                 Pagar
               </button>
             </div>

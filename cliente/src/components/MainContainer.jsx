@@ -26,7 +26,7 @@ const MainContainer = () => {
 
       {Productosfiltrados.length ? (
         <section className='    bg-gray-100 mt-4  min-h-screen '>
-          <div className='   flex    flex-wrap place-content-center sm:gap-4    '>
+          <div className='   flex    flex-wrap place-content-center    sm:gap-4    '>
             {Productosfiltrados?.slice(firstProductIndex, lastProductIndex).map(
               (producto, i) => {
                 return <Product key={i} {...producto} />

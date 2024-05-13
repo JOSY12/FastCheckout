@@ -12,34 +12,48 @@ const Filtros = () => {
   useEffect(() => {}, [filtros])
 
   return (
-    <div className='flex place-content-center'>
-      <select
-        onChange={selecionfiltros}
-        name='categoria'
-        className='m-2 rounded-lg border-2 border-black'
-      >
-        <option value={''}>Todos</option>
-        {todascategorias?.map((categoria) => (
-          <option key={categoria} value={categoria}>
-            {categoria}
-          </option>
-        ))}
-      </select>
-      <select
-        onChange={selecionfiltros}
-        name='compañia'
-        className='m-2 rounded-lg border-2 border-black'
-      >
-        <option value={''}>Todos</option>
-        {todascompanias?.map((compañia) => (
-          <option key={compañia} value={compañia}>
-            {compañia}
-          </option>
-        ))}
-      </select>
-      <label className='m-2 rounded-lg border-2 border-black'>
-        <input name='nombre' type='text' onChange={selecionfiltros} />
+    <div className='flex   place-content-center lg:place-content-start  sm:place-content-center md:place-content-start  md:ml-36 lg:ml-36 select-none  curosor-pointer   flex-grow flex-wrap'>
+      <label htmlFor='' className=' '>
+        Categoria
+        <select
+          onChange={selecionfiltros}
+          name='categoria'
+          className='m-2   outline-none '
+        >
+          <option value={''}>Todos</option>
+          {todascategorias?.map((categoria) => (
+            <option key={categoria} value={categoria}>
+              {categoria}
+            </option>
+          ))}
+        </select>
       </label>
+
+      <label htmlFor=''>
+        Marca
+        <select
+          onChange={selecionfiltros}
+          name='compañia'
+          className='m-2   outline-none '
+        >
+          <option value={''}>Todos</option>
+          {todascompanias?.map((compañia) => (
+            <option key={compañia} value={compañia}>
+              {compañia}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      <div className='md:w-full'>
+        <input
+          name='nombre'
+          className='  border-gray-300 border-2 rounded-md w-[300px] outline-none  '
+          placeholder='Buscar'
+          type='text'
+          onChange={selecionfiltros}
+        />
+      </div>
     </div>
   )
 }

@@ -29,15 +29,6 @@ export const Carrito = create(set => ({
     }))
   },
 
-  // restar: id => {
-  //   set(({ carrito }) => ({
-  //     carrito: carrito.map(producto =>
-  //       producto.id === id && producto.cantidad > 1
-  //         ? { ...producto, cantidad: producto.cantidad - 1 }
-  //         : carrito.filter(producto => producto.id !== id)
-  //     )
-  //   }))
-  // },
   quitar: id =>
     set(({ carrito }) => ({
       carrito: carrito.filter(producto => producto.id !== id)

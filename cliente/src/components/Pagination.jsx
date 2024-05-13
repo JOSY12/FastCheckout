@@ -1,10 +1,11 @@
+import { useEffect } from 'react'
 const Pagination = ({
-  productosenpagina,
-  totalProducts,
+  productosporpagina,
+  productostotales,
   setpaginaActiva,
   paginaActiva
 }) => {
-  const paginastotales = Math.ceil(totalProducts / productosenpagina)
+  const paginastotales = Math.ceil(productostotales / productosporpagina)
 
   const paginas = []
 
@@ -22,17 +23,10 @@ const Pagination = ({
     setpaginaActiva(paginaActiva - 1)
   }
 
-  // const lastProductIndex = paginaActiva * productosenpagina
-  // const firstProductIndex = lastProductIndex - productosenpagina
-
   return (
     <>
       <div className=' flex   place-content-center '>
-        <div
-          className='  inline-flex place-content-between  bg-white p-4
-    
-   '
-        >
+        <div className='  inline-flex place-content-between  bg-white p-4'>
           <ul className='flex items-center -mx-[6px] gap-4'>
             {paginaActiva > 1 ? (
               <button

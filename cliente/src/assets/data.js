@@ -1,297 +1,269 @@
 const data = [
   {
     img: 'https://m.media-amazon.com/images/I/6125yAfsJKL._AC_UX575_.jpg',
-    title: 'Nike Air Monarch IV',
+    nombre: 'Nike Air Monarch IV',
 
-    prevPrice: '$140,00',
-    newPrice: '200',
-    company: 'Nike',
+    precio: '200',
+    compañia: 'Nike',
     color: 'white',
-    category: 'sneakers'
+    categoria: 'sneakers'
   },
   {
     img: 'https://m.media-amazon.com/images/I/519MRhRKGFL._AC_UX575_.jpg',
-    title: 'Nike Air Vapormax Plus',
+    nombre: 'Nike Air Vapormax Plus',
 
-    prevPrice: '$140,00',
-    newPrice: '200',
-    company: 'Nike',
+    precio: '200',
+    compañia: 'Nike',
     color: 'red',
-    category: 'sneakers'
+    categoria: 'sneakers'
   },
 
   {
     img: 'https://m.media-amazon.com/images/I/51+P9uAvb1L._AC_UY695_.jpg',
-    title: 'Nike Waffle One Sneaker',
+    nombre: 'Nike Waffle One Sneaker',
 
-    prevPrice: '$140,00',
-    newPrice: '200',
-    company: 'Nike',
+    precio: '200',
+    compañia: 'Nike',
     color: 'green',
-    category: 'sneakers'
+    categoria: 'sneakers'
   },
   {
     img: 'https://m.media-amazon.com/images/I/71oEKkghg-L._AC_UX575_.jpg',
-    title: 'Nike Running Shoe',
+    nombre: 'Nike Running Shoe',
 
-    prevPrice: '$140,00',
-    newPrice: '200',
-    company: 'Adidas',
+    precio: '200',
+    compañia: 'Adidas',
     color: 'black',
-    category: 'sneakers'
+    categoria: 'sneakers'
   },
   {
     img: 'https://m.media-amazon.com/images/I/41M54ztS6IL._AC_SY625._SX._UX._SY._UY_.jpg',
-    title: 'Flat Slip On Pumps',
+    nombre: 'Flat Slip On Pumps',
 
-    prevPrice: '$140,00',
-    newPrice: '200',
-    company: 'Vans',
+    precio: '200',
+    compañia: 'Vans',
     color: 'green',
-    category: 'flats'
+    categoria: 'flats'
   },
   {
     img: 'https://m.media-amazon.com/images/I/71zKuNICJAL._AC_UX625_.jpg',
-    title: 'Knit Ballet Flat',
+    nombre: 'Knit Ballet Flat',
 
-    prevPrice: '$140,00',
-    newPrice: '50',
-    company: 'Adidas',
+    precio: '50',
+    compañia: 'Adidas',
     color: 'black',
-    category: 'flats'
+    categoria: 'flats'
   },
 
   {
     img: 'https://m.media-amazon.com/images/I/61V9APfz97L._AC_UY695_.jpg',
-    title: 'Loafer Flats',
+    nombre: 'Loafer Flats',
 
-    prevPrice: '$140,00',
-    newPrice: '50',
-    company: 'Vans',
+    precio: '50',
+    compañia: 'Vans',
     color: 'white',
-    category: 'flats'
+    categoria: 'flats'
   },
 
   {
     img: 'https://m.media-amazon.com/images/I/71VaQ+V6XnL._AC_UY695_.jpg',
-    title: 'Nike Zoom Freak',
+    nombre: 'Nike Zoom Freak',
 
-    prevPrice: '$140,00',
-    newPrice: '200',
-    company: 'Nike',
+    precio: '200',
+    compañia: 'Nike',
     color: 'green',
-    category: 'sneakers'
+    categoria: 'sneakers'
   },
 
   {
     img: 'https://m.media-amazon.com/images/I/61-cBsLhJHL._AC_UY695_.jpg',
-    title: "Nike Men's Sneaker",
+    nombre: "Nike Men's Sneaker",
 
-    prevPrice: '$140,00',
-    newPrice: '200',
-    company: 'Adidas',
+    precio: '200',
+    compañia: 'Adidas',
     color: 'blue',
-    category: 'sneakers'
+    categoria: 'sneakers'
   },
 
   {
     img: 'https://m.media-amazon.com/images/I/81xXDjojYKS._AC_UX575_.jpg',
-    title: 'PUMA BLACK-OCE',
+    nombre: 'PUMA BLACK-OCE',
 
-    prevPrice: '$140,00',
-    newPrice: '150',
-    company: 'Puma',
+    precio: '150',
+    compañia: 'Puma',
     color: 'green',
-    category: 'sneakers'
+    categoria: 'sneakers'
   },
   {
     img: 'https://m.media-amazon.com/images/I/71E75yRwCDL._AC_UY575_.jpg',
-    title: 'Pacer Future Sneaker',
+    nombre: 'Pacer Future Sneaker',
 
-    prevPrice: '$140,00',
-    newPrice: '150',
-    company: 'Puma',
+    precio: '150',
+    compañia: 'Puma',
     color: 'red',
-    category: 'sneakers'
+    categoria: 'sneakers'
   },
   {
     img: 'https://m.media-amazon.com/images/I/71jeoX0rMBL._AC_UX575_.jpg',
-    title: 'Unisex-Adult Super',
+    nombre: 'Unisex-Adult Super',
 
-    prevPrice: '$140,00',
-    newPrice: '150',
-    company: 'Puma',
+    precio: '150',
+    compañia: 'Puma',
     color: 'black',
-    category: 'sneakers'
+    categoria: 'sneakers'
   },
   {
     img: 'https://m.media-amazon.com/images/I/61TM6Q9dvxL._AC_UX575_.jpg',
-    title: 'Roma Basic Sneaker',
+    nombre: 'Roma Basic Sneaker',
 
-    prevPrice: '$140,00',
-    newPrice: '150',
-    company: 'Puma',
+    precio: '150',
+    compañia: 'Puma',
     color: 'white',
-    category: 'sneakers'
+    categoria: 'sneakers'
   },
   {
     img: 'https://m.media-amazon.com/images/I/7128-af7joL._AC_UY575_.jpg',
-    title: 'Pacer Future Doubleknit',
+    nombre: 'Pacer Future Doubleknit',
 
-    prevPrice: '$140,00',
-    newPrice: '150',
-    company: 'Puma',
+    precio: '150',
+    compañia: 'Puma',
     color: 'black',
-    category: 'sneakers'
+    categoria: 'sneakers'
   },
 
   {
     img: 'https://m.media-amazon.com/images/I/81xXDjojYKS._AC_UX575_.jpg',
-    title: 'Fusion Evo Golf Shoe',
+    nombre: 'Fusion Evo Golf Shoe',
 
-    prevPrice: '$140,00',
-    newPrice: '100',
-    company: 'Puma',
+    precio: '100',
+    compañia: 'Puma',
     color: 'green',
-    category: 'sneakers'
+    categoria: 'sneakers'
   },
   {
     img: 'https://m.media-amazon.com/images/I/719gdz8lsTS._AC_UX575_.jpg',
-    title: 'Rainbow Chex Skate',
+    nombre: 'Rainbow Chex Skate',
 
-    prevPrice: '$140,00',
-    newPrice: '100',
-    company: 'Vans',
+    precio: '100',
+    compañia: 'Vans',
     color: 'red',
-    category: 'flats'
+    categoria: 'flats'
   },
   {
     img: 'https://m.media-amazon.com/images/I/71gpFHJlnoL._AC_UX575_.jpg',
-    title: 'Low-Top Trainers',
+    nombre: 'Low-Top Trainers',
 
-    prevPrice: '$140,00',
-    newPrice: '100',
-    company: 'Vans',
+    precio: '100',
+    compañia: 'Vans',
     color: 'white',
-    category: 'sandals'
+    categoria: 'sandals'
   },
   {
     img: 'https://m.media-amazon.com/images/I/71pf7VFs9CL._AC_UX575_.jpg',
-    title: 'Vans Unisex Low-Top',
+    nombre: 'Vans Unisex Low-Top',
 
-    prevPrice: '$140,00',
-    newPrice: '100',
-    company: 'Vans',
+    precio: '100',
+    compañia: 'Vans',
     color: 'blue',
-    category: 'sandals'
+    categoria: 'sandals'
   },
   {
     img: 'https://m.media-amazon.com/images/I/61N4GyWcHPL._AC_UY575_.jpg',
-    title: 'Classic Bandana Sneakers',
+    nombre: 'Classic Bandana Sneakers',
 
-    prevPrice: '$140,00',
-    newPrice: '50',
-    company: 'Nike',
+    precio: '50',
+    compañia: 'Nike',
     color: 'black',
-    category: 'sandals'
+    categoria: 'sandals'
   },
   {
     img: 'https://m.media-amazon.com/images/I/61bncQ44yML._AC_UX695_.jpg',
-    title: 'Chunky High Heel',
+    nombre: 'Chunky High Heel',
 
-    prevPrice: '$140,00',
-    newPrice: '50',
-    company: 'Vans',
+    precio: '50',
+    compañia: 'Vans',
     color: 'black',
-    category: 'heels'
+    categoria: 'heels'
   },
   {
     img: 'https://m.media-amazon.com/images/I/71czu7WgGuL._AC_UY695_.jpg',
-    title: 'Slip On Stiletto High Heel',
+    nombre: 'Slip On Stiletto High Heel',
 
-    prevPrice: '$140,00',
-    newPrice: '100',
-    company: 'puma',
+    precio: '100',
+    compañia: 'Puma',
     color: 'black',
-    category: 'heels'
+    categoria: 'heels'
   },
   {
     img: 'https://m.media-amazon.com/images/I/61men05KRxL._AC_UY625_.jpg',
-    title: 'DREAM PAIRS Court Shoes',
+    nombre: 'DREAM PAIRS Court Shoes',
 
-    prevPrice: '$140,00',
-    newPrice: '150',
-    company: 'Nike',
+    precio: '150',
+    compañia: 'Nike',
     color: 'red',
-    category: 'heels'
+    categoria: 'heels'
   },
   {
     img: 'https://m.media-amazon.com/images/I/519MRhRKGFL._AC_UX575_.jpg',
-    title: 'Nike Air Vapormax Plus',
+    nombre: 'Nike Air Vapormax Plus',
 
-    prevPrice: '$140,00',
-    newPrice: '200',
-    company: 'Nike',
+    precio: '200',
+    compañia: 'Nike',
     color: 'red',
-    category: 'sneakers'
+    categoria: 'sneakers'
   },
 
   {
     img: 'https://m.media-amazon.com/images/I/51PGWTXgf-L._AC_UY625_.jpg',
-    title: 'Low Mid Block Heels',
+    nombre: 'Low Mid Block Heels',
 
-    prevPrice: '$140,00',
-    newPrice: '200',
-    company: 'Nike',
+    precio: '200',
+    compañia: 'Nike',
     color: 'black',
-    category: 'heels'
+    categoria: 'heels'
   },
   {
     img: 'https://m.media-amazon.com/images/I/616sA5XUKtL._AC_UY675_.jpg',
-    title: 'Chunky High Heel',
+    nombre: 'Chunky High Heel',
 
-    prevPrice: '$140,00',
-    newPrice: '50',
-    company: 'Adidas',
+    precio: '50',
+    compañia: 'Adidas',
     color: 'black',
-    category: 'heels'
+    categoria: 'heels'
   },
   {
     img: 'https://m.media-amazon.com/images/I/71h5+MbEK7L._AC_UY625_.jpg',
-    title: 'Amore Fashion Stilettos',
+    nombre: 'Amore Fashion Stilettos',
 
-    prevPrice: '$140,00',
-    newPrice: '150',
-    company: 'Adidas',
+    precio: '150',
+    compañia: 'Adidas',
     color: 'white',
-    category: 'heels'
+    categoria: 'heels'
   },
   {
     img: 'https://m.media-amazon.com/images/I/61uw5RDxKQL._AC_UY625_.jpg',
-    title: 'Bridal Sandals Glitter',
+    nombre: 'Bridal Sandals Glitter',
 
-    prevPrice: '$140,00',
-    newPrice: '50',
-    company: 'Adidas',
+    precio: '50',
+    compañia: 'Adidas',
     color: 'black',
-    category: 'heels'
+    categoria: 'heels'
   },
   {
     img: 'https://m.media-amazon.com/images/I/71yhoZP0l6L._AC_UY695_.jpg',
-    title: 'Wedding Prom Bridal',
+    nombre: 'Wedding Prom Bridal',
 
-    prevPrice: '$140,00',
-    newPrice: '50',
-    company: 'Adidas',
+    precio: '50',
+    compañia: 'Adidas',
     color: 'black',
-    category: 'flats'
+    categoria: 'flats'
   }
 ]
 data.map(
   (product, index) => (
     (product.id = 1 + index),
     (product.cantidad = 0),
-    (product.newPrice = parseInt(product.newPrice))
+    (product.precio = parseInt(product.precio))
   )
 )
 

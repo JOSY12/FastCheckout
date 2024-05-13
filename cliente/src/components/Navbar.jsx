@@ -10,9 +10,9 @@ const Navbar = () => {
       <nav className='  z-30 w-full border-b border-gray-200 bg-white py-2.5 px-6 sm:px-4'>
         <div className='container mx-auto flex max-w-6xl flex-wrap items-center justify-between'>
           <a href='/' className='flex items-center'>
-            <span className='self-center whitespace-nowrap text-xl font-semibold'>
+            <h1 className='self-center whitespace-nowrap text-xl font-semibold'>
               Fast checkout
-            </span>
+            </h1>
           </a>
           <div className='mt-2 sm:mt-0 md:order-2 '>Home</div>
           <div className='mt-2 sm:mt-0 sm:flex md:order-2'>

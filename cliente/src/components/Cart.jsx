@@ -8,7 +8,7 @@ const Cart = () => {
 
   useEffect(() => {
     const total = carrito.reduce(
-      (acc, { newPrice, cantidad }) => acc + newPrice * cantidad,
+      (acc, { precio, cantidad }) => acc + precio * cantidad,
       0
     )
     settotal(total)
@@ -45,7 +45,7 @@ const Cart = () => {
                 disabled={carrito.length === 0}
                 className={`mt-6 w-full   rounded-md disabled:bg-white bg-black   py-1.5 font-medium text-blue-50    `}
               >
-                Pagar
+                Pagar todo
               </button>
             </div>
           </div>

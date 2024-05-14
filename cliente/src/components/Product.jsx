@@ -15,7 +15,7 @@ const Product = ({ id, categoria, compañia, img, precio, nombre }) => {
   return (
     // <article className='rounded-xl h-60 w-60 m-2 bg-white p-3 shadow-lg hover:shadow-xl z-10     hover:scale-105 duration-300 '>
 
-    <article className='rounded-xl  w-[400px] md:w-[350px]  lg:w-[300px]  m-2 bg-white p-3 shadow-lg hover:shadow-xl z-10     hover:scale-105 duration-300 '>
+    <article className='rounded-xl    w-[350px] md:w-[350px]  lg:w-[300px]  m-2 bg-white p-3 shadow-lg hover:shadow-xl z-10     hover:scale-105 duration-300 '>
       <a>
         <div className='   select-none  flex place-content-center    '>
           <img src={img} alt='Hotel Photo' className=' h-[200px] w-[300px] ' />

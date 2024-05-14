@@ -12,7 +12,7 @@ const Filtros = () => {
   useEffect(() => {}, [filtros])
 
   return (
-    <div className='flex   place-content-center lg:place-content-start  sm:place-content-center md:place-content-start  md:ml-36 lg:ml-36 select-none  curosor-pointer   flex-grow flex-wrap'>
+    <div className='flex   place-content-center m-2  select-none  curosor-pointer     flex-wrap'>
       <label htmlFor='' className=' '>
         Categoria
         <select
@@ -45,7 +45,7 @@ const Filtros = () => {
         </select>
       </label>
 
-      <div className='md:w-full'>
+      <div className=' m-2 p-0'>
         <input
           name='nombre'
           className='  border-gray-300 border-2 rounded-md w-[300px] outline-none  '

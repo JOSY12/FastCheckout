@@ -8,7 +8,11 @@ const Cartproduct = ({
   nombre,
   cantidad
 }) => {
-  const { quitar, aumentar, restar } = Carrito()
+  const quitar = Carrito((state) => state.quitar)
+  const aumentar = Carrito((state) => state.aumentar)
+
+  const restar = Carrito((state) => state.restar)
+
   return (
     <div className=' justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start'>
       <img

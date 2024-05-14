@@ -2,6 +2,7 @@ import Product from './Product'
 import { Productos } from '../context/Productos.js'
 import Pagination from './Pagination'
 import { useState } from 'react'
+import Filtros from './Filtros.jsx'
 
 const MainContainer = () => {
   const { productos, filtros } = Productos()
@@ -16,22 +17,24 @@ const MainContainer = () => {
       (filtros.compañia === '' || product.compañia === filtros.compañia) &&
       (filtros.categoria === '' || product.categoria === filtros.categoria) &&
       (filtros.nombre === '' ||
-        product.nombre.toLowerCase().includes(filtros.nombre))
+        product.nombre.toLowerCase().includes(filtros.nombre.toLowerCase()))
   )
 
   return (
     <>
-      {/* <h1 className='text-center text-3xl font-bold'>Ecommerce simple</h1> */}
-      {/* //// */}
+      <Filtros />
 
       {Productosfiltrados.length ? (
-        <section className='    bg-gray-100 mt-4  min-h-screen '>
-          <div className='   flex    flex-wrap place-content-center    sm:gap-4    '>
-            {Productosfiltrados?.slice(firstProductIndex, lastProductIndex).map(
-              (producto, i) => {
+        <section className='     bg-gray-100 2  min-h-screen '>
+          <div className='   flex   place-content-center         '>
+            <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 '>
+              {Productosfiltrados?.slice(
+                firstProductIndex,
+                lastProductIndex
+              ).map((producto, i) => {
                 return <Product key={i} {...producto} />
-              }
-            )}
+              })}
+            </div>
           </div>
         </section>
       ) : (

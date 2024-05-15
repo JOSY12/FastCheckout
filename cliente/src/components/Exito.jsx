@@ -24,7 +24,7 @@ const Exito = () => {
 
   // Mostrar el estado de carga si se está verificando la presencia de parámetros en la URL
   // Renderizar el contenido de la página de éxito solo si los parámetros están presentes
-  return paymentId && status && paymentType ? (
+  return (
     <div className='bg-gray-100 '>
       <div className='bg-white p-6 min-h-screen place-content-center md:mx-auto'>
         <svg
@@ -57,7 +57,7 @@ const Exito = () => {
         </div>
       </div>
     </div>
-  ) : null
+  )
 }
 
 export default Exito

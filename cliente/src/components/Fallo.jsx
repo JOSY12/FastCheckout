@@ -22,12 +22,10 @@ const Fallo = () => {
       window.history.replaceState(null, '', '/') // Evitar que el usuario regrese a esta página
       // Redirigir después de 5 segundos
       const timeout = setTimeout(() => {
-        vaciarcarro()
         navigate('/', { replace: true })
       }, 5000)
       return () => clearTimeout(timeout)
     }
-    vaciarcarro()
   }, [navigate, paymentId, status, paymentType, vaciarcarro])
 
   // Mostrar el estado de carga si se está verificando la presencia de parámetros en la URL

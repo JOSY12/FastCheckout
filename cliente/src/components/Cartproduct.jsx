@@ -43,7 +43,7 @@ const Cartproduct = ({
           </div>
           <div className='flex items-center space-x-4'>
             <p className='text-sm'>
-              ${precio}x{cantidad}
+              ${precio * 10}x{cantidad}
             </p>
             <button onClick={() => quitar(id)} className='    text-black'>
               <svg

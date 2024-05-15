@@ -12,19 +12,26 @@ const Exito = () => {
   const paymentType = queryParameters.get('payment_type')
 
   useEffect(() => {
-    vaciarcarro()
     // Verificar si los parámetros necesarios están presentes
-    const timeout = setTimeout(() => {
+    if (!paymentId || !status || !paymentType) {
+      navigate('/', { replace: true }) // Redirigir al usuario a otra página si faltan parámetros
+    } else {
+      // Reemplazar la entrada actual en el historial
       window.history.replaceState(null, '', '/') // Evitar que el usuario regrese a esta página
+      // Redirigir después de 5 segundos
+      const timeout = setTimeout(() => {
+        vaciarcarro()
 
-      navigate('/', { replace: true })
-    }, 5000)
-    return () => clearTimeout(timeout)
+        navigate('/', { replace: true })
+      }, 5000)
+      return () => clearTimeout(timeout)
+    }
+    vaciarcarro()
   }, [navigate, paymentId, status, paymentType, vaciarcarro])
 
   // Mostrar el estado de carga si se está verificando la presencia de parámetros en la URL
   // Renderizar el contenido de la página de éxito solo si los parámetros están presentes
-  return (
+  return paymentId && status && paymentType ? (
     <div className='bg-gray-100 '>
       <div className='bg-white p-6 min-h-screen place-content-center md:mx-auto'>
         <svg
@@ -57,7 +64,7 @@ const Exito = () => {
         </div>
       </div>
     </div>
-  )
+  ) : null
 }
 
 export default Exito

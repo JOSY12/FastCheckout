@@ -16,11 +16,11 @@ export const Rutas = createBrowserRouter([
         element: <MainContainer />
       },
       {
-        path: 'exito',
+        path: '/exito',
         element: <Exito />
       },
       {
-        path: 'fallo',
+        path: '/fallo',
         element: <Fallo />
       }
     ]

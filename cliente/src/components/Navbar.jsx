@@ -45,8 +45,8 @@ const Navbar = () => {
                             <tr>
                               <th>1</th>
                               <td>Colombia</td>
-                              <td>TESTMDQSOMB8</td>
-                              <td>ce69d7c5#4f96#42fc#</td>
+                              <td>TESTUSER1402933167</td>
+                              <td>NcaOMZUXnt</td>
                             </tr>
 
                             <tr className='hover'>

@@ -6,6 +6,7 @@ import { FaFaceSadTear } from 'react-icons/fa6'
 const Cart = () => {
   const carrito = Carrito((state) => state.carrito)
   const quitar = Carrito((state) => state.quitar)
+  const comprartodo = Carrito((state) => state.comprartodo)
 
   const [total, settotal] = useState()
 
@@ -54,6 +55,7 @@ const Cart = () => {
                 </div>
 
                 <button
+                  onClick={comprartodo}
                   disabled={carrito.length === 0}
                   className={`mt-6 w-full   rounded-md disabled:bg-white bg-black   py-1.5 font-medium text-blue-50    `}
                 >

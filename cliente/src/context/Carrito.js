@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
+const SERVIDOR = import.meta.env.VITE_SERVIDOR
 export const Carrito = create(
   persist(
-    (set) => ({
+    (set, get) => ({
       carrito: [],
       agregar: (producto) => {
         set(({ carrito }) => ({
@@ -34,7 +35,30 @@ export const Carrito = create(
       quitar: (id) =>
         set(({ carrito }) => ({
           carrito: carrito.filter((producto) => producto.id !== id)
-        }))
+        })),
+
+      vaciarcarro: () => set(() => ({ carrito: [] })),
+
+      comprartodo: async () => {
+        const compras = get().carrito
+        await fetch(`${SERVIDOR}/fastcheckout/compras/crear`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ compras })
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res)
+
+            if (res) {
+              window.location.href = res
+            }
+          })
+      }
+
+      // termina el persist
     }),
     {
       name: 'carrito'

@@ -28,7 +28,7 @@ const Cartproduct = ({
           </p>
         </div>
         <div className='mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6'>
-          <div className='flex items-center border-gray-100'>
+          <div className='flex place-content-end border-gray-100'>
             <button onClick={() => restar(id)}>
               <span className='cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50'>
                 -

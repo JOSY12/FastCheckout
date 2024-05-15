@@ -15,15 +15,13 @@ const Fallo = () => {
 
   useEffect(() => {
     // Verificar si los parámetros necesarios están presentes
-
     // Reemplazar la entrada actual en el historial
     // Redirigir después de 5 segundos
-    const timeout = setTimeout(() => {
-      window.history.replaceState(null, '', '/') // Evitar que el usuario regrese a esta página
-
-      navigate('/', { replace: true })
-    }, 5000)
-    return () => clearTimeout(timeout)
+    // const timeout = setTimeout(() => {
+    //   window.history.replaceState(null, '', '/') // Evitar que el usuario regrese a esta página
+    //   navigate('/', { replace: true })
+    // }, 5000)
+    // return () => clearTimeout(timeout)
   }, [navigate, paymentId, status, paymentType, vaciarcarro])
 
   // Mostrar el estado de carga si se está verificando la presencia de parámetros en la URL

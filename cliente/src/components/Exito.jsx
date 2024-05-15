@@ -14,12 +14,12 @@ const Exito = () => {
   useEffect(() => {
     vaciarcarro()
     // Verificar si los parámetros necesarios están presentes
-    const timeout = setTimeout(() => {
-      window.history.replaceState(null, '', '/') // Evitar que el usuario regrese a esta página
+    // const timeout = setTimeout(() => {
+    //   window.history.replaceState(null, '', '/') // Evitar que el usuario regrese a esta página
 
-      navigate('/', { replace: true })
-    }, 5000)
-    return () => clearTimeout(timeout)
+    //   navigate('/', { replace: true })
+    // }, 5000)
+    // return () => clearTimeout(timeout)
   }, [navigate, paymentId, status, paymentType, vaciarcarro])
 
   // Mostrar el estado de carga si se está verificando la presencia de parámetros en la URL

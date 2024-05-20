@@ -25,20 +25,19 @@ const Navbar = () => {
               <dialog id='my_modal_1' className='  rounded-lg    '>
                 <div className='grid grid-cols-1    '>
                   <div className='   '>
-                    <ul className='m-4 sm:p-12  font-bold flex flex-col text-center  place-content-center justify-center items-center self-center '>
+                    <ul className='m-4 sm:p-6  font-bold flex flex-col text-center  place-content-center justify-center items-center self-center '>
                       <li>
                         <p> Paso 1:</p>
-                        inicia sesion con una de estas cuentas, agrega items al
-                        carrito y procede con el pago
+                        agrega items al carrito y procede con el pago
                         <br></br>
                       </li>
 
                       <br></br>
                       <li>
                         <p> Paso 2:</p>
-                        ingresa un correo electrónico puede ser random.
+                        ingresa un correo electrónico y nombre, pueden ser
+                        aletarios
                         <br></br>
-                        elige metodo de pago con tarjeta.
                       </li>
                       <br></br>
                       <li>
@@ -57,7 +56,7 @@ const Navbar = () => {
                                 Nombre-Titular
                               </p>
                               <h1 className='font-medium tracking-widest  text-left'>
-                                cualquier nombre ejemplo: Test
+                                cualquier
                               </h1>
                             </div>
 

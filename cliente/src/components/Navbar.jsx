@@ -41,7 +41,7 @@ const Navbar = () => {
                       </li>
                       <br></br>
                       <li>
-                        <p> 3:</p>
+                        <p>Paso 3:</p>
                         ingresa la informacion de la tarjeta
                       </li>
                       <br></br>

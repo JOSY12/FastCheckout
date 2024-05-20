@@ -29,7 +29,7 @@ const Product = ({ id, categoria, compañia, img, precio, nombre }) => {
             <p className='mt-1 text-sm text-slate-400'>{compañia}</p>
           </div>
 
-          <p className='text-lg font-bold text-blue-500'>${precio * 10}</p>
+          <p className='text-lg font-bold text-blue-500'>${precio}</p>
 
           <div className=''>
             <button

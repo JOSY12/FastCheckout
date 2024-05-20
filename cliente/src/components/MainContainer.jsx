@@ -3,7 +3,6 @@ import { Productos } from '../context/Productos.js'
 import Pagination from './Pagination'
 import { useState } from 'react'
 import Filtros from './Filtros.jsx'
-
 const MainContainer = () => {
   const { productos, filtros } = Productos()
   const [paginaActiva, setpaginaActiva] = useState(1)

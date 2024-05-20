@@ -263,7 +263,7 @@ data.map(
   (product, index) => (
     (product.id = 1 + index),
     (product.cantidad = 0),
-    (product.precio = parseInt(product.precio))
+    (product.precio = parseInt(product.precio / 10))
   )
 )
 

@@ -1,12 +1,13 @@
 import { Outlet, useNavigation } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { Toaster } from 'sonner'
 
 const Paginaspublicas = () => {
   return (
     <>
       <Navbar />
-
+      <Toaster position='top-center' expand={false} richColors />
       {useNavigation().state === 'loading' && (
         <div className='h-screen bg-white'>
           <div className='flex justify-center items-center h-full'>

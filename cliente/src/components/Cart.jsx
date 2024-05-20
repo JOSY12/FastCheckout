@@ -50,7 +50,7 @@ const Cart = () => {
                 <div className='flex justify-b  place-content-between'>
                   <p className='text-lg font-bold'>Total</p>
                   <div className=''>
-                    <p className='mb-1 text-lg font-bold'>${total * 10} </p>
+                    <p className='mb-1 text-lg font-bold'>${total} </p>
                   </div>
                 </div>
 

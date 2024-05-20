@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 const SERVIDOR = import.meta.env.VITE_SERVIDOR
+import { toast } from 'sonner'
 export const Carrito = create(
   persist(
     (set, get) => ({
@@ -41,21 +42,39 @@ export const Carrito = create(
 
       comprartodo: async () => {
         const compras = get().carrito
-        await fetch(`${SERVIDOR}/fastcheckout/compras/crear`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ compras })
-        })
-          .then((res) => res.json())
-          .then((res) => {
-            console.log(res)
 
-            if (res) {
-              window.location.href = res
-            }
-          })
+        toast.promise(
+          fetch(`${SERVIDOR}/fastcheckout/compras/stripe`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ compras })
+          }),
+          {
+            loading: 'Procesando compra...',
+            success: (data) => {
+              toast.success('Compra creada con éxito redirigiendo...')
+              data.json().then((res) => {
+                // console.log(res)
+                window.location.href = res
+              })
+            },
+            error: 'Error al crear compra'
+          }
+        )
+
+        // await fetch(`${SERVIDOR}/fastcheckout/compras/crear`, {
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        //   },
+        //   body: JSON.stringify({ compras })
+        // })
+        //   .then((res) => res.json())
+        //   .then((res) => {
+        //     console.log(res)
+        //   })
       }
 
       // termina el persist

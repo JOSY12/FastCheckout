@@ -2,7 +2,8 @@ import { LuShoppingCart } from 'react-icons/lu'
 import { useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { IoAlertCircleSharp } from 'react-icons/io5'
-import { FaCcMastercard } from 'react-icons/fa'
+
+import { LiaCcVisa } from 'react-icons/lia'
 
 import Cart from './Cart'
 const Navbar = () => {
@@ -27,65 +28,27 @@ const Navbar = () => {
                     <ul className='m-4 sm:p-12  font-bold flex flex-col text-center  place-content-center justify-center items-center self-center '>
                       <li>
                         <p> Paso 1:</p>
-                        inicia sesion con una de estas cuentas, compra algo algo
-                        mayor a 800$ <br></br>
+                        inicia sesion con una de estas cuentas, agrega items al
+                        carrito y procede con el pago
                         <br></br>
                       </li>
-                      <div className=' w-full   overflow-x-auto  '>
-                        <table className=' w-full    '>
-                          <thead>
-                            <tr className='font-bold text-white  bg-blue-700'>
-                              <th></th>
-                              <th>Pais</th>
-                              <th>Cuenta de usuario</th>
-                              <th>Contraseña</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th>1</th>
-                              <td>Colombia</td>
-                              <td>TESTUSER1402933167</td>
-                              <td>NcaOMZUXnt</td>
-                            </tr>
 
-                            <tr className='hover'>
-                              <th>2</th>
-                              <td>Perú</td>
-                              <td>TETE6237853</td>
-                              <td>a50a413c#732a#45aa#</td>
-                            </tr>
-
-                            <tr>
-                              <th>3</th>
-                              <td>México</td>
-                              <td>TETE4576700</td>
-                              <td>3d677b13#92c4#4b4c#</td>
-                            </tr>
-                            <tr>
-                              <th>4</th>
-                              <td>Argentina</td>
-                              <td>TETE3160622</td>
-                              <td>ce69d7c5#4f96#42fc#</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
                       <br></br>
                       <li>
                         <p> Paso 2:</p>
-                        elige tu metodo de pago,tarjeta,saldo,etc..
+                        ingresa un correo electrónico puede ser random.
+                        <br></br>
+                        elige metodo de pago con tarjeta.
                       </li>
                       <br></br>
                       <li>
-                        <p> Extra:</p>
-                        Puedes usar esta tarjeta de pago para hacer compras sin
-                        limites.
+                        <p> 3:</p>
+                        ingresa la informacion de la tarjeta
                       </li>
                       <br></br>
                     </ul>
 
-                    <div className='space-y-16 '>
+                    <div className='space-y-2 '>
                       <div className='w-[350px] h-56  m-auto bg-black rounded-xl relative text-white shadow-2xl transition-transform transform hover:scale-110'>
                         <div className='w-full px-8 absolute top-8'>
                           <div className='flex justify-between'>
@@ -94,23 +57,16 @@ const Navbar = () => {
                                 Nombre-Titular
                               </p>
                               <h1 className='font-medium tracking-widest  text-left'>
-                                APRO
+                                cualquier nombre ejemplo: Test
                               </h1>
                             </div>
-                            <div className=''>
-                              <p className='font-light text-left'>
-                                Identificacion (DNI,CC,NIT)
-                              </p>
-                              <h1 className='font-medium tracking-widest  text-left'>
-                                123456789
-                              </h1>
-                            </div>
-                            <FaCcMastercard className='text-3xl h-16 w-16' />
+
+                            <LiaCcVisa className='text-3xl h-16 w-16' />
                           </div>
                           <div className='pt-1'>
                             <p className='font-light text-left'>Número</p>
                             <h1 className='font-medium tracking-more-wider text-left'>
-                              5254 1336 7440 3564
+                              4242 4242 4242 4242
                             </h1>
                           </div>
                           <div className='pt-6 pr-6'>
@@ -120,7 +76,7 @@ const Navbar = () => {
                                   Fecha de caducidad
                                 </h1>
                                 <p className='font-medium tracking-wider text-sm'>
-                                  11/25
+                                  3/33
                                 </p>
                               </div>
 

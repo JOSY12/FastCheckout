@@ -49,6 +49,8 @@ export const Carrito = create(
             headers: {
               'Content-Type': 'application/json'
             },
+            
+  credentials: 'include', 
             body: JSON.stringify({ compras })
           }),
           {

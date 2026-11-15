@@ -1,61 +1,59 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { LuPlus, LuCheck, LuFootprints } from 'react-icons/lu'
 import { Carrito } from '../context/Carrito.js'
+import { precioFormateado } from '../utils/format'
 const Product = ({ id, categoria, compañia, img, precio, nombre }) => {
-  const { agregar, carrito } = Carrito()
-  const [agregado, setAgregado] = useState(false)
-
-  useEffect(() => {
-    if (carrito.find((producto) => producto.id === id)) {
-      setAgregado(true)
-    } else {
-      setAgregado(false)
-    }
-  }, [carrito, id])
-
+  const agregar = Carrito((state) => state.agregar)
+  const agregado = Carrito((state) =>
+    state.carrito.some((producto) => producto.id === id)
+  )
+  const [imagenFallida, setImagenFallida] = useState(false)
   return (
-    // <article className='rounded-xl h-60 w-60 m-2 bg-white p-3 shadow-lg hover:shadow-xl z-10     hover:scale-105 duration-300 '>
-
-    <article className='rounded-xl    w-[350px] md:w-[350px]  lg:w-[300px]  m-2 bg-white p-3 shadow-lg hover:shadow-xl z-10     hover:scale-105 duration-300 '>
-      <a>
-        <div className='   select-none  flex place-content-center    '>
-          <img src={img} alt='Hotel Photo' className=' h-[200px] w-[300px] ' />
-        </div>
-
-        <div className='mt-1 p-2'>
-          <h2 className='text-slate-700'>{nombre}</h2>
-          <div className='flex items-center justify-between'>
-            <p className='mt-1 text-sm text-slate-400'>{categoria}</p>
-
-            <p className='mt-1 text-sm text-slate-400'>{compañia}</p>
+    <article className={'product-card ' + (agregado ? 'is-added' : '')}>
+      <div className="product-image">
+        <span className="product-brand">{compañia}</span>
+        <span className="product-number">/ {String(id).padStart(2, '0')}</span>
+        {imagenFallida ? (
+          <div className="image-fallback">
+            <LuFootprints />
+            <span>{nombre}</span>
           </div>
-
-          <p className='text-lg font-bold text-blue-500'>${precio}</p>
-
-          <div className=''>
-            <button
-              onClick={() =>
-                agregar({
-                  id,
-                  categoria,
-                  compañia,
-                  img,
-                  precio,
-                  nombre,
-                  cantidad: 1
-                })
-              }
-              disabled={agregado}
-              className={`text-sm w-full ${
-                agregado ? 'bg-green-600  ' : ''
-              } flex items-center space-x-1.5   bg-black px-4 py-1.5 text-white duration-100    `}
-            >
-              {agregado ? 'Agregado al carrito' : '  Agregar al carrito'}
-            </button>
-          </div>
+        ) : (
+          <img
+            src={img}
+            alt={nombre}
+            loading="lazy"
+            onError={() => setImagenFallida(true)}
+          />
+        )}
+      </div>
+      <div className="product-info">
+        <span className="product-category">{categoria}</span>
+        <h3>{nombre}</h3>
+        <div className="product-price">
+          <strong>{precioFormateado(precio)}</strong>
+          <span>USD</span>
         </div>
-      </a>
+        <button
+          className={'button add-button ' + (agregado ? 'added' : '')}
+          disabled={agregado}
+          onClick={() =>
+            agregar({
+              id,
+              categoria,
+              compañia,
+              img,
+              precio,
+              nombre,
+              cantidad: 1
+            })
+          }
+        >
+          {agregado ? 'En tu carrito' : 'Añadir al carrito'}
+          {agregado ? <LuCheck /> : <LuPlus />}
+        </button>
+      </div>
     </article>
   )
 }
-
 export default Product

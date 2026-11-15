@@ -1,61 +1,101 @@
-// import { useState, useEffect } from 'react'
+import {
+  LuSearch,
+  LuSlidersHorizontal,
+  LuRotateCcw,
+  LuArrowUpRight
+} from 'react-icons/lu'
 import { Productos } from '../context/Productos'
-import { useEffect } from 'react'
-const Filtros = () => {
+const etiquetas = {
+  sneakers: 'Sneakers',
+  flats: 'Zapatos planos',
+  sandals: 'Sandalias',
+  heels: 'Tacones'
+}
+const Filtros = ({ onReset }) => {
   const { todascategorias, todascompanias, setFiltros, filtros } = Productos()
-
-  const selecionfiltros = (e) => {
-    const { name, value } = e.target
-    setFiltros(name, value)
-  }
-
-  useEffect(() => {}, [filtros])
-
+  const activos = Object.values(filtros).some(Boolean)
   return (
-    <div className='flex   place-content-center m-2  select-none  curosor-pointer     flex-wrap'>
-      <label htmlFor='' className=' '>
-        Categoria
-        <select
-          onChange={selecionfiltros}
-          name='categoria'
-          className='m-2   outline-none '
-        >
-          <option value={''}>Todos</option>
-          {todascategorias?.map((categoria) => (
-            <option key={categoria} value={categoria}>
-              {categoria}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <label htmlFor=''>
-        Marca
-        <select
-          onChange={selecionfiltros}
-          name='compañia'
-          className='m-2   outline-none '
-        >
-          <option value={''}>Todos</option>
-          {todascompanias?.map((compañia) => (
-            <option key={compañia} value={compañia}>
-              {compañia}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <div className=' m-2 p-0'>
-        <input
-          name='nombre'
-          className='  border-gray-300 border-2 rounded-md w-[300px] outline-none  '
-          placeholder='Buscar'
-          type='text'
-          onChange={selecionfiltros}
-        />
+    <aside className="filters" aria-label="Filtros de productos">
+      <div className="filter-heading">
+        <h3>
+          <LuSlidersHorizontal /> FILTRAR
+        </h3>
+        <span>01—03</span>
       </div>
-    </div>
+      <div className="filter-group">
+        <label className="filter-label" htmlFor="buscar">
+          01 / BUSCAR
+        </label>
+        <div className="search-field">
+          <LuSearch />
+          <input
+            id="buscar"
+            name="nombre"
+            type="search"
+            placeholder="Tu próximo par…"
+            value={filtros.nombre}
+            onChange={(e) => setFiltros('nombre', e.target.value)}
+          />
+        </div>
+      </div>
+      <fieldset className="filter-group">
+        <legend className="filter-label">02 / CATEGORÍA</legend>
+        <div className="category-options">
+          {['', ...todascategorias].map((categoria) => (
+            <label
+              className={
+                'category-option ' +
+                (filtros.categoria === categoria ? 'selected' : '')
+              }
+              key={categoria}
+            >
+              <input
+                type="radio"
+                name="categoria"
+                value={categoria}
+                checked={filtros.categoria === categoria}
+                onChange={(e) => setFiltros('categoria', e.target.value)}
+              />
+              <span>
+                {etiquetas[categoria] || categoria || 'Todos los pares'}
+              </span>
+              <LuArrowUpRight />
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      <div className="filter-group">
+        <label className="filter-label" htmlFor="marca">
+          03 / MARCA
+        </label>
+        <select
+          id="marca"
+          name="compañia"
+          value={filtros.compañia}
+          onChange={(e) => setFiltros('compañia', e.target.value)}
+        >
+          <option value="">Todas las marcas</option>
+          {todascompanias.map((marca) => (
+            <option key={marca} value={marca}>
+              {marca}
+            </option>
+          ))}
+        </select>
+      </div>
+      <button className="reset-filters" disabled={!activos} onClick={onReset}>
+        <LuRotateCcw /> Limpiar filtros
+      </button>
+      <div className="filter-note">
+        <span>✳</span>
+        <p>
+          EL BUEN ESTILO
+          <br />
+          EMPIEZA POR
+          <br />
+          <strong>TUS PIES.</strong>
+        </p>
+      </div>
+    </aside>
   )
 }
-
 export default Filtros

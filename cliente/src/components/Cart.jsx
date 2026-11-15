@@ -1,73 +1,100 @@
+import { useEffect, useRef } from 'react'
+import { LuX, LuShoppingBag, LuArrowRight, LuLock } from 'react-icons/lu'
 import { Carrito } from '../context/Carrito'
+import { precioFormateado } from '../utils/format'
 import Cartproduct from './Cartproduct'
-import { useEffect, useState } from 'react'
-import { FaFaceSadTear } from 'react-icons/fa6'
-
-const Cart = () => {
-  const carrito = Carrito((state) => state.carrito)
-  const quitar = Carrito((state) => state.quitar)
-  const comprartodo = Carrito((state) => state.comprartodo)
-
-  const [total, settotal] = useState()
-
+const Cart = ({ onClose }) => {
+  const dialog = useRef(null)
+  const { carrito, comprartodo, procesando } = Carrito()
+  const total = carrito.reduce(
+    (acc, { precio, cantidad }) => acc + precio * cantidad,
+    0
+  )
+  const cantidad = carrito.reduce((acc, producto) => acc + producto.cantidad, 0)
   useEffect(() => {
-    const total = carrito.reduce(
-      (acc, { precio, cantidad }) => acc + precio * cantidad,
-      0
-    )
-    settotal(total)
-  }, [carrito])
+    dialog.current.showModal()
+  }, [])
   return (
-    <>
-      <div className=' '>
-        <div className='bg-gray-100 top-12   absolute   transition-all duration-600 z-20 right-0'>
-          <div className=' bg-gray-200    p-4    rounded-md  lg:w-[600px] md:w-[600px]  '>
-            <div className='     md:flex  '>
-              <div className='rounded-lg   flex-col pt-4 overflow-y-scroll  md:max-h-[600px]   lg:max-h-[600px]  w-full '>
-                {/* aqui comienzan las card
-                 */}
-
-                {carrito?.map((producto) => (
-                  <Cartproduct
-                    quitar={quitar}
-                    key={producto.id}
-                    {...producto}
-                  />
-                ))}
-              </div>
-            </div>
-            {carrito.length === 0 ? (
-              <div className='flex  place-content-center justify-center    text-black animate-bounce  '>
-                <div>Carrito vacio </div>
-
-                <div className='place-content-center'>
-                  <FaFaceSadTear />
-                </div>
-              </div>
-            ) : (
-              <div className='mt-6 h-full   rounded-lg border bg-white p-6 shadow-md md:mt-0  '>
-                <hr className='my-4' />
-                <div className='flex justify-b  place-content-between'>
-                  <p className='text-lg font-bold'>Total</p>
-                  <div className=''>
-                    <p className='mb-1 text-lg font-bold'>${total} </p>
-                  </div>
-                </div>
-
-                <button
-                  onClick={comprartodo}
-                  disabled={carrito.length === 0}
-                  className={`mt-6 w-full   rounded-md disabled:bg-white bg-black   py-1.5 font-medium text-blue-50    `}
-                >
-                  Pagar todo
-                </button>
-              </div>
-            )}
-          </div>
+    <dialog
+      ref={dialog}
+      className="cart-dialog"
+      aria-labelledby="cart-title"
+      onClose={onClose}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) onClose()
+      }}
+    >
+      <div className="cart-header">
+        <div>
+          <span className="eyebrow">BUENAS ELECCIONES</span>
+          <h2 id="cart-title">
+            TU CARRITO<span className="accent-text">.</span>{' '}
+            <span className="cart-count">{cantidad}</span>
+          </h2>
         </div>
+        <button
+          className="icon-button"
+          aria-label="Cerrar carrito"
+          onClick={onClose}
+        >
+          <LuX />
+        </button>
       </div>
-    </>
+      {carrito.length ? (
+        <>
+          <div className="cart-items">
+            {carrito.map((producto) => (
+              <Cartproduct
+                key={producto.id}
+                {...producto}
+                disabled={procesando}
+              />
+            ))}
+          </div>
+          <div className="cart-summary">
+            <div className="cart-total">
+              <span>
+                TOTAL{' '}
+                <small>
+                  {cantidad} {cantidad === 1 ? 'artículo' : 'artículos'}
+                </small>
+              </span>
+              <strong>
+                {precioFormateado(total)} <small>USD</small>
+              </strong>
+            </div>
+            <button
+              className="button button-accent full-width checkout-button"
+              disabled={procesando}
+              onClick={comprartodo}
+            >
+              {procesando ? 'Preparando checkout…' : 'Ir a pagar'}
+              {procesando ? <span className="spinner" /> : <LuArrowRight />}
+            </button>
+            <p className="checkout-note">
+              <LuLock /> Checkout con Stripe · Entorno de demostración
+            </p>
+            <button className="text-button" onClick={onClose}>
+              Seguir explorando
+            </button>
+          </div>
+        </>
+      ) : (
+        <div className="empty-state cart-empty">
+          <LuShoppingBag />
+          <span className="eyebrow">ESPACIO PARA ALGO BUENO</span>
+          <h3>
+            Tu próximo par
+            <br />
+            te está esperando.
+          </h3>
+          <p>Explora la colección y añade tus favoritos.</p>
+          <button className="button button-accent" onClick={onClose}>
+            Explorar colección <LuArrowRight />
+          </button>
+        </div>
+      )}
+    </dialog>
   )
 }
-
 export default Cart

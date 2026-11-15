@@ -6,8 +6,7 @@ import {
   LuMoon,
   LuSun,
   LuShoppingBag,
-  LuX,
-  LuZap
+  LuX
 } from 'react-icons/lu'
 import { Carrito } from '../context/Carrito'
 import { Tema } from '../context/Tema'
@@ -43,9 +42,6 @@ const Navbar = () => {
       <header className="site-header">
         <nav className="header-inner" aria-label="Navegación principal">
           <Link to="/" className="brand" aria-label="Fastcheckout, inicio">
-            <span className="brand-symbol">
-              <LuZap />
-            </span>
             <span>
               fastcheckout<span className="brand-period">.</span>
             </span>

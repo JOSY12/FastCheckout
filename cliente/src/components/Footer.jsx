@@ -1,13 +1,10 @@
-import { LuArrowUpRight, LuZap, LuGithub } from 'react-icons/lu'
+import { LuArrowUpRight, LuGithub } from 'react-icons/lu'
 import { Link } from 'react-router-dom'
 const Footer = () => (
   <footer className="site-footer">
     <div className="footer-main page-width">
       <div>
         <Link to="/" className="brand">
-          <span className="brand-symbol">
-            <LuZap />
-          </span>
           <span>
             fastcheckout<span className="brand-period">.</span>
           </span>

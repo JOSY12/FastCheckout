@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { LuArrowDown, LuArrowUpRight, LuZap, LuSearchX } from 'react-icons/lu'
+import { LuArrowDown, LuArrowUpRight, LuSearchX } from 'react-icons/lu'
 import Product from './Product'
 import { Productos } from '../context/Productos.js'
 import Pagination from './Pagination'
@@ -70,7 +70,6 @@ const MainContainer = () => {
             BUEN PAR.
             <br />
             BUENA VIBRA.
-            <LuZap />
           </div>
           <div className="art-bottomline">
             <span>
@@ -154,7 +153,6 @@ const MainContainer = () => {
         </div>
       </section>
       <section className="bottom-banner page-width">
-        <LuZap />
         <h2>
           MENOS VUELTAS.
           <br />
